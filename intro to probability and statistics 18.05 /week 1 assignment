@@ -1,6 +1,8 @@
 # Assignment
 import math
 
+## PROBLEM 1 SIX CARD DRAW:
+
 deck = 52
 
 two_pair = {"heart": [2, 5], "spade": 2, "diamond": ["Q", "K"], "treble": 5}
@@ -10,7 +12,6 @@ threeOfaKind = {"heart": [2, "K"], "treble": [2, 5], "spade": [2, 9]}
 #print(threeOfaKind)
 
 # first let's look at all the possibilities of 6 cards out of 52
-
 
 combination = math.comb(deck, 6)
 #print("number of ways to choose 6 cards out of 52:", combination)
@@ -90,3 +91,5 @@ if two_pair_prob > three_of_a_kind_prob:
   print("Two-pair hand is more probable.")
 else:
   print("Three-of-a-kind hand is more probable.")
+
+## PROBLEM 2 NON-TRANSITIVE DICE: 
