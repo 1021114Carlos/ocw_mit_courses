@@ -1,1 +1,29 @@
+Exercises 1.4
 
+import numpy as np
+
+# Problem 3.1
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[1, 0], [0, 0]])
+C = np.array([[0, 0], [5, 6]])
+
+# Compute AB, AC, and A(B + C)
+AB = np.dot(A, B)
+AC = np.dot(A, C)
+AB_plus_AC = AB + AC
+A_B_plus_C = np.dot(A, B + C)
+
+# Verify if AB + AC == A(B + C)
+problem_3_1_solution = np.array_equal(AB_plus_AC, A_B_plus_C)
+
+# Problem 3.2
+U = np.array([[1, 2, 3], [0, 1, 4], [0, 0, 1]])
+I = np.eye(3)
+
+# Augmented matrix [U | I]
+augmented_matrix = np.hstack((U, I))
+
+# Perform Gauss-Jordan elimination
+U_inv = np.linalg.inv(U)
+
+AB, AC, AB_plus_AC, A_B_plus_C, problem_3_1_solution, U_inv
