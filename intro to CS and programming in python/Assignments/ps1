@@ -1,1 +1,187 @@
 
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOxSX8BtN2DTuze1ba6HdOd",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/1021114Carlos/ocw_mit_courses/blob/manufacturing_shop/cs_assignment_ps1.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Part A: house hunting ps1a.py\n",
+        ">how many months needed to save enough for down payment?"
+      ],
+      "metadata": {
+        "id": "ig2IiR0fu-cK"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def houseHunting(annual_salary, portion_saved, total_cost):\n",
+        "    number_of_months = 0\n",
+        "    portion_down_payment = total_cost*(1/4) # paying 25% downpayment\n",
+        "    rate_of_return = (5/100)\n",
+        "    current_savings = 0\n",
+        "    investments = 0\n",
+        "    notEnough = True\n",
+        "\n",
+        "    while notEnough:\n",
+        "        current_savings += investments + ((annual_salary*portion_saved)/12)\n",
+        "        investments = (current_savings*rate_of_return)/12\n",
+        "        number_of_months +=1\n",
+        "\n",
+        "        if current_savings >= portion_down_payment:\n",
+        "            notEnough = False\n",
+        "    print(f'Number of months to save for down payment {number_of_months} or {number_of_months/12} years')\n",
+        "\n",
+        "\n",
+        "print(\"Please enter your annual income: \")\n",
+        "annual_salary = float(input())\n",
+        "print(\"Please enter the percentage to be saved every month: \")\n",
+        "portion_saved = float(input())\n",
+        "print(\"Please enter the current cost of the house: \")\n",
+        "total_cost = float(input())\n",
+        "houseHunting(annual_salary, portion_saved, total_cost)\n",
+        "\n",
+        "\n",
+        "#Code ps1a.py works as intended."
+      ],
+      "metadata": {
+        "id": "5EOFNaRk-ppx",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2fcf0020-c449-4911-e7c3-71b46d781b79"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Please enter your annual income: \n",
+            "65000\n",
+            "Please enter the percentage to be saved every month: \n",
+            ".20\n",
+            "Please enter the current cost of the house: \n",
+            "400000\n",
+            "Number of months to save for down payment 79 or 6.583333333333333 years\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Part B: Saving for down payment, with a percentage raise every six months."
+      ],
+      "metadata": {
+        "id": "vaEnHV9j2Lyv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def houseHunting(annual_salary, portion_saved, total_cost, semi_annual_raise):\n",
+        "    number_of_months = 0\n",
+        "    portion_down_payment = total_cost*(1/4)\n",
+        "    rate_of_return = (5/100)\n",
+        "    current_savings = 0\n",
+        "    investments = 0\n",
+        "    notEnough = True\n",
+        "\n",
+        "    while notEnough:\n",
+        "        current_savings += investments + ((annual_salary*portion_saved)//12)\n",
+        "        investments = (current_savings*rate_of_return)//12\n",
+        "        number_of_months +=1\n",
+        "\n",
+        "        if number_of_months%6 == 0:\n",
+        "            annual_salary = annual_salary + (annual_salary*semi_annual_raise)\n",
+        "\n",
+        "        if current_savings >= portion_down_payment:\n",
+        "            notEnough = False\n",
+        "    print(f'Number of months to save for down payment {number_of_months} or {number_of_months//12} years')\n",
+        "\n",
+        "\n",
+        "print(\"Please enter your annual income: \")\n",
+        "annual_salary = float(input())\n",
+        "print(\"Please enter the percentage to be saved every month: \")\n",
+        "portion_saved = float(input())\n",
+        "print(\"Please enter the current cost of the house: \")\n",
+        "total_cost = float(input())\n",
+        "print(\"Enter semi-annual percentage raise: \")\n",
+        "semi_annual_raise = float(input())\n",
+        "houseHunting(annual_salary, portion_saved, total_cost, semi_annual_raise)\n",
+        "\n",
+        "#Code ps1b.py works as intended."
+      ],
+      "metadata": {
+        "id": "-IUqkuMeR9cb",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "8bdce61e-bb7c-474e-d86e-f3165cffab2b"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Please enter your annual income: \n",
+            "110000\n",
+            "Please enter the percentage to be saved every month: \n",
+            ".15\n",
+            "Please enter the current cost of the house: \n",
+            "750000\n",
+            "Enter semi-annual percentage raise: \n",
+            ".03\n",
+            "Number of months to save for down payment 92 or 7 years\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Part C: Choosing an Interest Rate\n",
+        ">Find the lowest rate of return to make downpayment in 3 years."
+      ],
+      "metadata": {
+        "id": "8ycB6BtE45KR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "su3R2cSRWAoB"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
