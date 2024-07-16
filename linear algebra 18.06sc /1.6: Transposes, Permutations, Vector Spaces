@@ -1,4 +1,28 @@
 - Finished lecture
 - Finished recitation
 - Finished lecture summary
-- Working on exercises
+- Finished exercises.
+
+a) Find a 3 by 3 permutation matrix with P3 = I (but not P = I).
+b) Find a 4 by 4 permutation P^4 with P4 not equal to I.
+
+# Part (a)
+P3 = np.array([
+[0, 0, 1],
+[1, 0, 0],
+[0, 1, 0]
+])
+print(f'P3:\n {P3}')
+print("P3^3:\n", np.linalg.matrix_power(P3, 3))
+
+# Part (b)
+
+# Problem 5.1
+# Part (b)
+P4 = np.array([
+[0, 0, 1],
+[1, 0, 0],
+[0, 1, 0]
+])
+print("P4:\n", P4)
+print("P3^4:\n", np.linalg.matrix_power(P4, 4))
