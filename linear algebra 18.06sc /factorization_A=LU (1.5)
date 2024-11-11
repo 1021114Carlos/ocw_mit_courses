@@ -28,6 +28,52 @@ print(U)
 A_reconstructed = P @ L @ U
 print("\nReconstructed Matrix A from P, L, and U:")
 print(A_reconstructed)
+
+
+# Compute L and U for the symmetric matrix and find four conditions on a,b,c,d to get A=LU with four pivots.
+
+import numpy as np
+from scipy.linalg import lu
+
+# Define the symmetric matrix A with symbolic entries
+def compute_lu(a, b, c, d):
+    A = np.array([
+        [a, a, a, a],
+        [a, b, b, b],
+        [a, b, c, c],
+        [a, b, c, d]
+    ], dtype=float)
+
+    # Perform LU decomposition using scipy
+    P, L, U = lu(A)
+
+    # Display the results
+    print("Matrix A:")
+    print(A)
+    print("\nLower Triangular Matrix L:")
+    print(L)
+    print("\nUpper Triangular Matrix U:")
+    print(U)
+
+    # Verify the result by checking if A = P @ L @ U
+    A_reconstructed = P @ L @ U
+    print("\nReconstructed Matrix A from P, L, and U:")
+    print(A_reconstructed)
+    print("\nVerification (A == P @ L @ U):")
+    print(np.allclose(A, A_reconstructed))
+
+    # Find conditions for four pivots
+    if a != 0 and b != a and c != a and d != a:
+        print("\nConditions are satisfied for four pivots.")
+    else:
+        print("\nConditions are NOT satisfied for four pivots.")
+
+# Example values for a, b, c, d
+a, b, c, d = 2, 4, 6, 8
+
+# Compute and display LU decomposition with the given values
+compute_lu(a, b, c, d)
+
 print("\nVerification (A == P @ L @ U):")
 print(np.allclose(A, A_reconstructed))
 
