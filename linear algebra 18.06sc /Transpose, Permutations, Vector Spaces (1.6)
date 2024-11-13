@@ -1,0 +1,16 @@
+Part (a)
+# Find a 3 by 3 permutation matrix with P3 = I (but not P = I)
+# This is p
+p = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+
+# Calculate P2
+p2 = np.dot(p, p)
+p2
+
+# Calculate P3
+p3 = np.dot(p, p2)
+
+# P3 = I this condition is satisfied.
+p3
+
+Part (b)
