@@ -14,3 +14,22 @@ p3 = np.dot(p, p2)
 p3
 
 Part (b)
+# Needs rework
+# Define a permutation matrix P
+P = np.array([[0, 0, 0, 1],
+              [0, 0, 1, 0],
+              [0, 1, 0, 0],
+              [1, 0, 0, 0]])
+
+# Verify P^4 is not equal to the identity matrix
+P4 = np.linalg.matrix_power(P, 4)
+
+# Print the results
+print("P^4 =\n", P4)
+#print("\nIs P^4 equal to the identity matrix?", np.array_equal(P4, np.eye(4)))
+
+Part 5.2 (a and b)
+needs more work
+# a)
+k = np.array([['a','b','c','d'],['b','e','f','g'],['e','f','g','h'],['f','g','h','i']])
+k.transpose()
