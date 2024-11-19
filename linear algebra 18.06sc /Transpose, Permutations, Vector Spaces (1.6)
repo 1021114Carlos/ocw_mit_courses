@@ -31,5 +31,23 @@ print("P^4 =\n", P4)
 Part 5.2 (a and b)
 needs more work
 # a)
-k = np.array([['a','b','c','d'],['b','e','f','g'],['e','f','g','h'],['f','g','h','i']])
-k.transpose()
+k = np.array([['a', 'b', 'c', 'd'],
+              ['b', 'e', 'f', 'g'],
+              ['c', 'f', 'h', 'i'],
+              ['d', 'g', 'i', 'j']])
+
+# Flatten the matrix to a 1D array
+flattened_matrix = k.flatten()
+
+# Use a set to find unique elements
+unique_elements = set(flattened_matrix)
+
+# Count the number of unique elements
+unique_count = len(unique_elements)
+
+print("Number of unique elements:", unique_count)
+
+# b)
+
+
+
